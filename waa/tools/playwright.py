@@ -1,7 +1,7 @@
 import json
 import subprocess
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 from ..tool import Tool, ToolArgument
 from ..env import AgentEnvironment
@@ -263,3 +263,10 @@ Returns test results including pass/fail status and any error messages."""
                 "data": None,
                 "error": f"Failed to run Playwright tests: {str(e)}"
             }
+
+def standard_playwright_tools() -> List[Tool]:
+    """Returns a list of all standard playwright tool instances."""
+    return [
+        PlaywrightInitTool(),
+        PlaywrightRunTool(),
+    ]

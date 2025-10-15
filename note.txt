@@ -1,0 +1,18 @@
+### 虚拟环境
+python -m venv .venv # creating a virtual environment
+source .venv/bin/activate # change this to other activate scripts (e.g. activate.fish) if you are using other shells (e.g. fish)
+pip install -r requirements.txt
+
+### 配置API KEY
+export GEMINI_API_KEY="your_api_key_here"
+echo $GEMINI_API_KEY
+
+### 同步代码仓
+1. 查看修改文件
+git status # 确认需同步的修改文件（红色为未跟踪 / 修改，绿色为已暂存）
+2. 暂存修改文件
+git add + 文件名1 文件名2
+3. 提交修改到本地分支（代码空间内）
+git commit -m "提交描述"
+4. 推送提交到远程仓库的 main 分支
+git push origin main

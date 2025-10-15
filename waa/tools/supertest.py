@@ -1,7 +1,7 @@
 import json
 import subprocess
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 from ..tool import Tool, ToolArgument
 from ..env import AgentEnvironment
@@ -209,3 +209,10 @@ Returns test results including pass/fail status, number of tests, and any error 
                 "data": None,
                 "error": f"Failed to run API tests: {str(e)}"
             }
+
+def standard_supertest_tools() -> List[Tool]:
+    """Returns a list of all standard supertest tool instances."""
+    return [
+        SupertestInitTool(),
+        SupertestRunTool(),
+    ]

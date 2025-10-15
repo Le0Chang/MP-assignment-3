@@ -1,6 +1,6 @@
 import json
 import subprocess
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 from ..tool import Tool, ToolArgument
 from ..env import AgentEnvironment
@@ -296,3 +296,13 @@ You can specify the number of lines to get with the argument `lines`, default to
                 "data": None,
                 "error": str(e)
             }
+
+def standard_server_tools() -> List[Tool]:
+    """Returns a list of all standard server tool instances."""
+    return [
+        NPMInitTool(),
+        NPMStartTool(),
+        NPMStopTool(),
+        NPMStatusTool(),
+        NPMLogsTool(),
+    ]

@@ -77,3 +77,16 @@ class MockLanguageModel(LanguageModel):
 
     def reset(self):
         self.call_count = 0
+
+
+def create_language_model(model_name: str) -> LanguageModel:
+    """
+    根据模型名称创建并返回相应的语言模型实例。
+    """
+    if model_name.startswith('gemini/'):
+        return GeminiLanguageModel(model_name=model_name)
+    elif model_name == 'mock':
+        return MockLanguageModel()
+    else:
+        raise ValueError(f"不支持的语言模型或格式不正确: {model_name}")
+        
